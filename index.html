@@ -9,6 +9,9 @@
   <meta name="description" content="Mana Village Comedy Club brings Telugu comedy Shorts, family comedy, village fun, funny AI stories and Telugu entertainment. Watch videos and subscribe on YouTube." />
   <meta name="keywords" content="Mana Village Comedy Club, Telugu comedy, Telugu comedy shorts, village comedy, family comedy, Telugu funny videos, Telangana comedy, AI comedy shorts" />
   <link rel="canonical" href="https://mana-village-comedy-club.github.io/" />
+  <link rel="icon" type="image/png" href="/LOGO.png" />
+  <link rel="apple-touch-icon" href="/LOGO.png" />
+  <meta property="og:image" content="https://mana-village-comedy-club.github.io/LOGO.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Mana Village Comedy Club" />
   <meta property="og:title" content="Mana Village Comedy Club | Telugu Comedy & Entertainment" />
@@ -19,11 +22,25 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Mana Village Comedy Club",
-    "url": "https://mana-village-comedy-club.github.io/",
-    "sameAs": ["https://www.youtube.com/@ManaVillageComedyClub"],
-    "description": "Telugu comedy Shorts, village entertainment, family comedy and funny stories."
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://mana-village-comedy-club.github.io/#website",
+        "name": "Mana Village Comedy Club",
+        "alternateName": ["Mana Village Comedy Club Official Website", "MVCC"],
+        "url": "https://mana-village-comedy-club.github.io/",
+        "publisher": {"@id": "https://mana-village-comedy-club.github.io/#organization"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://mana-village-comedy-club.github.io/#organization",
+        "name": "Mana Village Comedy Club",
+        "url": "https://mana-village-comedy-club.github.io/",
+        "logo": "https://mana-village-comedy-club.github.io/LOGO.png",
+        "sameAs": ["https://www.youtube.com/@ManaVillageComedyClub"],
+        "description": "Telugu comedy Shorts, village entertainment, family comedy and funny stories."
+      }
+    ]
   }
   </script>
   <style>
@@ -51,6 +68,7 @@
     .topbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 30px; padding: 14px var(--gutter); border-bottom: 1px solid rgba(255,255,255,.08); background: rgba(10,8,11,.86); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
     .brand { display: inline-flex; align-items: center; gap: 11px; min-width: max-content; }
     .brand-mark { position: relative; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 13px; color: white; font-size: 16px; font-weight: 950; background: linear-gradient(145deg,#ff6669,#b80c2d 76%); border: 1px solid rgba(255,255,255,.34); box-shadow: 0 7px 26px #f0444d3d, inset 0 1px 0 #ffffff4a; }
+    .brand-logo { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: inherit; }
     .brand-name { font-size: clamp(13px,1.15vw,16px); font-weight: 900; letter-spacing: -.45px; line-height: 1.04; }
     .brand-name span { display: block; margin-top: 5px; color: var(--gold); font-size: 8px; font-weight: 800; letter-spacing: 2.6px; text-transform: uppercase; }
     .nav { display: flex; align-items: center; gap: clamp(13px,2vw,28px); margin-left: 13px; color: #e8dfe6; font-size: 12px; }
@@ -166,7 +184,8 @@
     @media (max-width:680px) {
       .topbar { padding-top:11px; padding-bottom:11px; gap:10px; flex-wrap:wrap; }
       .brand-mark { width:37px; height:37px; border-radius:11px; }
-      .brand-name { font-size:12px; }
+      .brand-logo { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: inherit; }
+    .brand-name { font-size:12px; }
       .brand-name span { font-size:7px; letter-spacing:2px; }
       .nav { order:3; width:100%; justify-content:space-between; padding:7px 0 1px; font-size:11px; }
       .top-actions { gap:7px; }
@@ -235,7 +254,7 @@
   <div class="app-root">
     <header class="topbar">
       <a class="brand" href="#home" aria-label="Mana Village Comedy Club home">
-        <span class="brand-mark" aria-hidden="true">▶</span>
+        <span class="brand-mark"><img class="brand-logo" src="/LOGO.png" alt="Mana Village Comedy Club logo" width="42" height="42" /></span>
         <span class="brand-name">Mana Village Comedy Club<span>Telugu • Comedy • Fun</span></span>
       </a>
       <nav class="nav" aria-label="Main navigation">

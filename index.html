@@ -484,3 +484,56 @@ fetch('/site-settings.json')
   </script>
 </body>
 </html>
+
+<div id="website-photos" style="display:flex;flex-wrap:wrap;gap:16px;margin:20px 0;"></div>
+
+<script>
+fetch('/site-settings.json')
+  .then(response => {
+    if (!response.ok) throw new Error('Settings not found');
+    return response.json();
+  })
+  .then(settings => {
+    const gallery = document.getElementById('website-photos');
+
+    if (gallery && Array.isArray(settings.photos)) {
+      gallery.innerHTML = '';
+
+      settings.photos.forEach(photo => {
+        const img = document.createElement('img');
+        img.src = photo.replace(/ /g, '%20');
+        img.alt = 'Mana Village Comedy Club photo';
+        img.style.width = '100%';
+        img.style.maxWidth = '300px';
+        img.style.height = 'auto';
+        img.style.borderRadius = '12px';
+        gallery.appendChild(img);
+      });
+    }
+
+    if (settings.quickTitle) {
+      const heading = document.querySelector('h1');
+      if (heading) heading.textContent = settings.quickTitle;
+    }
+
+    if (settings.siteTitle) {
+      document.title = settings.siteTitle;
+    }
+
+    if (settings.description) {
+      const meta = document.querySelector('meta[name="description"]');
+      if (meta) meta.content = settings.description;
+    }
+
+    if (settings.logo) {
+      document.querySelectorAll('img').forEach(img => {
+        if (img.getAttribute('src')?.includes('LOGO.png')) {
+          img.src = settings.logo;
+        }
+      });
+    }
+  })
+  .catch(error => console.log('Website settings:', error));
+</script>
+</body>
+</html>

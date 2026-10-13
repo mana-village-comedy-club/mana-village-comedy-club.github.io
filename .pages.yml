@@ -2,8 +2,43 @@
 media: media
 
 content:
+  - name: site_settings
+    label: Full Website Editor
+    type: file
+    path: site-settings.json
+    format: json
+    fields:
+      - name: quickTitle
+        label: Quick Edit - Main Title
+        type: string
+      - name: siteTitle
+        label: Website Name
+        type: string
+      - name: tagline
+        label: Tagline
+        type: string
+      - name: description
+        label: Website Description
+        type: text
+      - name: logo
+        label: Logo
+        type: image
+        options:
+          media: media
+      - name: youtubeUrl
+        label: YouTube Channel Link
+        type: string
+      - name: photos
+        label: Website Photos
+        type: image
+        options:
+          media: media
+          multiple:
+            max: 20
+
   - name: homepage
-    label: Website Homepage
+    label: Website Homepage (Code)
     type: file
     path: index.html
     format: code
+

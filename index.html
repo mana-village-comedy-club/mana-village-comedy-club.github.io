@@ -249,32 +249,29 @@
       *, *:before, *:after { transition-duration:.01ms !important; animation-duration:.01ms !important; }
     }
     
-/* Mana Village Comedy Club — Dasara Theme */
+
+/* Mana Village Comedy Club — Dasara Background */
 .app-root {
   background:
     linear-gradient(
-      rgba(20, 8, 0, 0.25),
-      rgba(20, 8, 0, 0.45)
+      rgba(30, 12, 0, 0.18),
+      rgba(20, 8, 0, 0.35)
     ),
-   background: url('/media/dasara-background.png') center top / cover fixed no-repeat;
+    url('https://raw.githubusercontent.com/mana-village-comedy-club/mana-village-comedy-club.github.io/main/media/dasara-background.png')
+    center top / cover fixed no-repeat;
 }
 
 .hero-art {
-  background: url('/media/dasara-background.png') center center / cover no-repeat;
+  background: transparent;
 }
 
 .hero-art:before {
   background:
     linear-gradient(
       90deg,
-      rgba(20, 8, 0, 0.48) 0%,
-      rgba(20, 8, 0, 0.20) 50%,
-      rgba(20, 8, 0, 0.08) 100%
-    ),
-    linear-gradient(
-      0deg,
-      rgba(10, 8, 11, 0.4) 0%,
-      transparent 35%
+      rgba(20, 8, 0, 0.28) 0%,
+      rgba(20, 8, 0, 0.10) 55%,
+      transparent 100%
     );
 }
 
@@ -287,6 +284,8 @@
 .hero-art > .poster-stack,
 .hero-art > .art-caption {
   display: none;
+}
+
 }
 
   </style>

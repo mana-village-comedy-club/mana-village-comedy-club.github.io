@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Images & Videos | Mana Village Comedy Club</title>
+  <meta name="description" content="Explore photos, posters and Telugu comedy videos from Mana Village Comedy Club.">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #10101a;
+      color: white;
+    }
+
+    header {
+      padding: 25px 16px;
+      text-align: center;
+      background: linear-gradient(135deg, #30105e, #941c39);
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 5vw, 42px);
+    }
+
+    header p {
+      color: #f5ddea;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 24px 16px 40px;
+    }
+
+    .navigation {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      background: #d6284b;
+      padding: 12px 18px;
+      border-radius: 9px;
+      font-weight: bold;
+    }
+
+    .button.home {
+      background: #302c43;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin-top: 28px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .photo-card {
+      background: #201d2e;
+      border: 1px solid #39334d;
+      padding: 10px;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 9px;
+    }
+
+    .message {
+      color: #d8d1e5;
+      padding: 18px 0;
+    }
+
+    .video-area {
+      background: #201d2e;
+      border: 1px solid #39334d;
+      border-radius: 14px;
+      padding: 22px;
+      margin-top: 12px;
+    }
+
+    footer {
+      background: #090910;
+      text-align: center;
+      padding: 22px 12px;
+      color: #c7c1d5;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>📸 Images & Videos</h1>
+    <p>Mana Ooru. Mana Navvulu. Mana Village Comedy Club!</p>
+  </header>
+
+  <main class="container">
+    <nav class="navigation">
+      <a class="button home" href="/">← Home</a>
+      <a class="button" href="https://www.youtube.com/@ManaVillageComedyClub/videos" target="_blank" rel="noopener">▶ All Videos</a>
+      <a class="button" href="https://www.youtube.com/@ManaVillageComedyClub/shorts" target="_blank" rel="noopener">🎬 Shorts</a>
+    </nav>
+
+    <section>
+      <h2>📸 Our Images & Posters</h2>
+      <p class="message">Photos and posters uploaded to our website will appear here.</p>
+      <div id="gallery-photos" class="gallery"></div>
+      <p id="photo-message" class="message" hidden></p>
+    </section>
+
+    <section>
+      <h2>🎬 Our Videos</h2>
+      <div class="video-area">
+        <h3>Mana Village Comedy Club</h3>
+        <p>Watch our Telugu village comedy, family skits and latest Shorts on YouTube.</p>
+        <a class="button" href="https://www.youtube.com/@ManaVillageComedyClub/videos" target="_blank" rel="noopener">▶ Watch Our Videos</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Mana Village Comedy Club
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    fetch('/site-settings.json')
+      .then(response => {
+        if (!response.ok) throw new Error('Settings not found');
+        return response.json();
+      })
+      .then(settings => {
+        const gallery = document.getElementById('gallery-photos');
+        const message = document.getElementById('photo-message');
+
+        if (Array.isArray(settings.photos) && settings.photos.length) {
+          settings.photos.forEach(photo => {
+            const card = document.createElement('div');
+            card.className = 'photo-card';
+
+            const link = document.createElement('a');
+            link.href = photo;
+            link.target = '_blank';
+            link.rel = 'noopener';
+
+            const img = document.createElement('img');
+            img.src = photo.replace(/ /g, '%20');
+            img.alt = 'Mana Village Comedy Club photo';
+            img.loading = 'lazy';
+
+            img.onerror = () => card.remove();
+
+            link.appendChild(img);
+            card.appendChild(link);
+            gallery.appendChild(card);
+          });
+        } else {
+          message.hidden = false;
+          message.textContent = 'No photos uploaded yet. Please check back soon!';
+        }
+      })
+      .catch(() => {
+        document.getElementById('photo-message').hidden = false;
+        document.getElementById('photo-message').textContent =
+          'Photos could not be loaded. Please try again later.';
+      });
+  </script>
+</body>
+</html>

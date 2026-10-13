@@ -248,6 +248,47 @@
       html { scroll-behavior:auto; }
       *, *:before, *:after { transition-duration:.01ms !important; animation-duration:.01ms !important; }
     }
+    
+/* Mana Village Comedy Club — Dasara Theme */
+.app-root {
+  background:
+    linear-gradient(
+      rgba(20, 8, 0, 0.25),
+      rgba(20, 8, 0, 0.45)
+    ),
+    url('/media/dasara-background.png') center top / cover fixed no-repeat;
+}
+
+.hero-art {
+  background: url('/media/dasara-background.png') center center / cover no-repeat;
+}
+
+.hero-art:before {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(20, 8, 0, 0.48) 0%,
+      rgba(20, 8, 0, 0.20) 50%,
+      rgba(20, 8, 0, 0.08) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(10, 8, 11, 0.4) 0%,
+      transparent 35%
+    );
+}
+
+.hero-art > .spotlight,
+.hero-art > .moon,
+.hero-art > .ridge,
+.hero-art > .fields,
+.hero-art > .hut,
+.hero-art > .tree,
+.hero-art > .poster-stack,
+.hero-art > .art-caption {
+  display: none;
+}
+
   </style>
 </head>
 <body>

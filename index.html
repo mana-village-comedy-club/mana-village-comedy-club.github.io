@@ -370,5 +370,43 @@
     });
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-</body>
+</body> 
+<script>
+fetch('/site-settings.json')
+  .then(response => {
+    if (!response.ok) throw new Error('Settings not found');
+    return response.json();
+  })
+  .then(settings => {
+    if (settings.quickTitle) {
+      const heading = document.querySelector('h1');
+      if (heading) heading.textContent = settings.quickTitle;
+    }
+
+    if (settings.siteTitle) {
+      document.title = settings.siteTitle;
+    }
+
+    if (settings.description) {
+      const meta = document.querySelector('meta[name="description"]');
+      if (meta) meta.content = settings.description;
+    }
+
+    if (settings.logo) {
+      document.querySelectorAll('img').forEach(img => {
+        if (img.getAttribute('src')?.includes('LOGO.png')) {
+          img.src = settings.logo;
+        }
+      });
+    }
+
+    if (settings.youtubeUrl) {
+      document.querySelectorAll('a[href*="youtube.com"]').forEach(link => {
+        link.href = settings.youtubeUrl;
+      });
+    }
+  })
+  .catch(error => console.log('Website settings:', error));
+</script>
+
 </html>

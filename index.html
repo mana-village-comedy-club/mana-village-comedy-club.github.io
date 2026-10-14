@@ -626,71 +626,54 @@ fetch('/site-settings.json')
     "display:none;margin:18px;padding:22px;border:1px solid #f7cf86;" +
     "border-radius:14px;background:#20171e;color:#fffaf6;";
 
-  dashboard.innerHTML =
-    "<h2 style='margin-top:0'>Mana Village Comedy Club — Admin</h2>" +
-    "<p id='mvccAdminStatus'></p>" +
-    "<p>Google sign-in successful. Admin access is enabled for this account.</p>";
 
-  header.insertAdjacentElement("afterend", dashboard);
+const db = firebase.firestore();
 
-  loginButton.addEventListener("click", async function () {
-    try {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      provider.setCustomParameters({ prompt: "select_account" });
-      await auth.signInWithPopup(provider);
-    } catch (error) {
-      console.error("Google sign-in error:", error);
-      alert("Login failed: " + (error.message || error.code));
-    }
-  });
+const settingsForm = dashboard.querySelector("#mvccSiteSettingsForm");
+const titleInput = dashboard.querySelector("#mvccSiteTitle");
+const descriptionInput = dashboard.querySelector("#mvccSiteDescription");
+const saveStatus = dashboard.querySelector("#mvccSaveStatus");
 
-  logoutButton.addEventListener("click", async function () {
-    try {
-      await auth.signOut();
-    } catch (error) {
-      alert("Logout failed. Please try again.");
-      console.error(error);
-    }
-  });
+async function loadSiteSettings() {
+  const snapshot = await db.collection("siteSettings").doc("main").get();
 
-  dashboardButton.addEventListener("click", function () {
-    dashboard.scrollIntoView({ behavior: "smooth" });
-  });
+  if (snapshot.exists) {
+    const data = snapshot.data();
+    if (data.siteTitle) titleInput.value = data.siteTitle;
+    if (data.description) descriptionInput.value = data.description;
+  }
+}
 
-  let rejectingUnauthorizedUser = false;
+settingsForm.addEventListener("submit", async function (event) {
+  event.preventDefault();
 
-  auth.onAuthStateChanged(async function (user) {
-    const isAdmin =
-      !!user &&
-      !!user.email &&
-      user.email.toLowerCase() === ADMIN_EMAIL.toLowerCase();
+  const user = auth.currentUser;
+  if (
+    !user ||
+    user.email?.toLowerCase() !== ADMIN_EMAIL.toLowerCase() ||
+    !user.emailVerified
+  ) {
+    saveStatus.textContent = "Admin sign-in required.";
+    return;
+  }
 
-    if (user && !isAdmin) {
-      if (!rejectingUnauthorizedUser) {
-        rejectingUnauthorizedUser = true;
-        try {
-          await auth.signOut();
-          alert("This account is not authorized. Please use " + ADMIN_EMAIL);
-        } catch (error) {
-          console.error("Could not sign out unauthorized user:", error);
-        } finally {
-          rejectingUnauthorizedUser = false;
-        }
-      }
-      return;
-    }
+  saveStatus.textContent = "Saving...";
 
-    loginButton.style.display = isAdmin ? "none" : "inline-flex";
-    dashboardButton.style.display = isAdmin ? "inline-flex" : "none";
-    logoutButton.style.display = isAdmin ? "inline-flex" : "none";
-    dashboard.style.display = isAdmin ? "block" : "none";
+  try {
+    await db.collection("siteSettings").doc("main").set({
+      siteTitle: titleInput.value.trim(),
+      description: descriptionInput.value.trim(),
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    }, { merge: true });
 
-    if (isAdmin) {
-      document.getElementById("mvccAdminStatus").textContent =
-        "Signed in as: " + user.email;
-    }
-  });
-})();
+    saveStatus.textContent = "Website details saved successfully!";
+  } catch (error) {
+    console.error(error);
+    saveStatus.textContent =
+      "Save failed: " + (error.message || error.code);
+  }
+});
+
 </script>
 
 </body>

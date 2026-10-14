@@ -554,5 +554,143 @@ fetch('/site-settings.json')
 <script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
 
+  
+<script>
+(function () {
+  const firebaseConfig = {
+    apiKey: "AIzaSyDlZJSxgNA62XPgJ_5-Rjia-0E3rXBlBq0",
+    authDomain: "mana-village-comedy-club-admin.firebaseapp.com",
+    projectId: "mana-village-comedy-club-admin",
+    storageBucket: "mana-village-comedy-club-admin.firebasestorage.app",
+    messagingSenderId: "884085850855",
+    appId: "1:884085850855:web:72539600123a09035ed842",
+    measurementId: "G-MX2VFRBF2G"
+  };
+
+  const ADMIN_EMAIL = "sandrasrihari2002@gmail.com";
+
+  const topActions = document.querySelector(".top-actions");
+  const header = document.querySelector(".topbar");
+
+  if (!topActions || !header || !window.firebase) {
+    console.error("Firebase SDK or website header is missing.");
+    return;
+  }
+
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+
+  const auth = firebase.auth();
+
+  function makeButton(id, text, className) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.id = id;
+    button.className = className;
+    button.textContent = text;
+    return button;
+  }
+
+  const loginButton = makeButton(
+    "mvccAdminLogin",
+    "Admin Login",
+    "btn btn-ghost"
+  );
+
+  const dashboardButton = makeButton(
+    "mvccAdminDashboard",
+    "Admin Dashboard",
+    "btn btn-ghost"
+  );
+
+  const logoutButton = makeButton(
+    "mvccAdminLogout",
+    "Logout",
+    "btn btn-ghost"
+  );
+
+  const subscribeButton = topActions.querySelector("a.btn-red");
+
+  topActions.insertBefore(loginButton, subscribeButton);
+  topActions.insertBefore(dashboardButton, subscribeButton);
+  topActions.insertBefore(logoutButton, subscribeButton);
+
+  dashboardButton.style.display = "none";
+  logoutButton.style.display = "none";
+
+  const dashboard = document.createElement("section");
+  dashboard.id = "mvccAdminPanel";
+  dashboard.style.cssText =
+    "display:none;margin:18px;padding:22px;border:1px solid #f7cf86;" +
+    "border-radius:14px;background:#20171e;color:#fffaf6;";
+
+  dashboard.innerHTML =
+    "<h2 style='margin-top:0'>Mana Village Comedy Club — Admin</h2>" +
+    "<p id='mvccAdminStatus'></p>" +
+    "<p>Google sign-in successful. Admin access is enabled for this account.</p>";
+
+  header.insertAdjacentElement("afterend", dashboard);
+
+  loginButton.addEventListener("click", async function () {
+    try {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      provider.setCustomParameters({ prompt: "select_account" });
+      await auth.signInWithPopup(provider);
+    } catch (error) {
+      console.error("Google sign-in error:", error);
+      alert("Login failed: " + (error.message || error.code));
+    }
+  });
+
+  logoutButton.addEventListener("click", async function () {
+    try {
+      await auth.signOut();
+    } catch (error) {
+      alert("Logout failed. Please try again.");
+      console.error(error);
+    }
+  });
+
+  dashboardButton.addEventListener("click", function () {
+    dashboard.scrollIntoView({ behavior: "smooth" });
+  });
+
+  let rejectingUnauthorizedUser = false;
+
+  auth.onAuthStateChanged(async function (user) {
+    const isAdmin =
+      !!user &&
+      !!user.email &&
+      user.email.toLowerCase() === ADMIN_EMAIL.toLowerCase();
+
+    if (user && !isAdmin) {
+      if (!rejectingUnauthorizedUser) {
+        rejectingUnauthorizedUser = true;
+        try {
+          await auth.signOut();
+          alert("This account is not authorized. Please use " + ADMIN_EMAIL);
+        } catch (error) {
+          console.error("Could not sign out unauthorized user:", error);
+        } finally {
+          rejectingUnauthorizedUser = false;
+        }
+      }
+      return;
+    }
+
+    loginButton.style.display = isAdmin ? "none" : "inline-flex";
+    dashboardButton.style.display = isAdmin ? "inline-flex" : "none";
+    logoutButton.style.display = isAdmin ? "inline-flex" : "none";
+    dashboard.style.display = isAdmin ? "block" : "none";
+
+    if (isAdmin) {
+      document.getElementById("mvccAdminStatus").textContent =
+        "Signed in as: " + user.email;
+    }
+  });
+})();
+</script>
+
 </body>
 </html>

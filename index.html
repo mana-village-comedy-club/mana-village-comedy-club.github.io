@@ -557,22 +557,12 @@ https://raw.githubusercontent.com/mana-village-comedy-club/mana-village-comedy-c
         if (ogTitle) ogTitle.content = data.title;
       }
 
-      if (data.description) {
-        const metaDescription = document.querySelector(
-          'meta[name="description"]'
-        );
-
-        if (metaDescription) {
-          metaDescription.content = data.description;
-        }
-
-        const ogDescription = document.querySelector(
-          'meta[property="og:description"]'
-        );
-
-        if (ogDescription) {
+              if (ogDescription) {
           ogDescription.content = data.description;
         }
+
+        const heroCopy = document.querySelector(".hero-copy");
+        if (heroCopy) heroCopy.textContent = data.description;
       }
     })
     .catch(function (error) {

@@ -690,11 +690,11 @@ settingsForm.addEventListener("submit", async function (event) {
   saveStatus.textContent = "Saving...";
 
   try {
-    await db.collection("siteSettings").doc("main").set({
-      siteTitle: titleInput.value.trim(),
-      description: descriptionInput.value.trim(),
-      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-    }, { merge: true });
+  await db.collection("siteSettings").doc("homepage").set({
+    title: titleInput.value.trim(),
+    description: descriptionInput.value.trim(),
+    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+  }, { merge: true });
 
     saveStatus.textContent = "Website details saved successfully!";
   } catch (error) {

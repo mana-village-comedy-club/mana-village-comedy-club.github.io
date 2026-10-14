@@ -393,29 +393,30 @@ https://raw.githubusercontent.com/mana-village-comedy-club/mana-village-comedy-c
 .hero-art > .art-caption {
   display: none !important;
 }
-  </style>/* Round channel logo with golden lighting */
+    /* Circular channel logo with golden glow */
 .hero-logo-wrap {
   position: absolute;
-  z-index: 4;
-  right: clamp(20px, 5vw, 75px);
+  z-index: 6;
+  right: 6%;
   top: 50%;
   transform: translateY(-50%);
-  width: clamp(180px, 24vw, 300px);
-  height: clamp(180px, 24vw, 300px);
-  display: grid;
-  place-items: center;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
-  border: 2px solid rgba(255, 215, 120, 0.95);
   background: radial-gradient(
     circle,
-    rgba(255, 208, 95, 0.28),
-    rgba(255, 155, 25, 0.12) 65%,
-    transparent 76%
+    rgba(255, 215, 100, 0.28),
+    rgba(255, 170, 30, 0.08) 65%,
+    transparent 72%
   );
+  border: 2px solid #ffd66b;
   box-shadow:
-    0 0 0 8px rgba(255, 200, 80, 0.12),
-    0 0 28px 10px rgba(255, 190, 60, 0.38),
-    0 0 65px rgba(255, 170, 25, 0.28);
+    0 0 10px #ffd66b,
+    0 0 30px rgba(255, 190, 50, 0.8),
+    0 0 60px rgba(255, 170, 30, 0.4);
 }
 
 .hero-channel-logo {
@@ -424,16 +425,19 @@ https://raw.githubusercontent.com/mana-village-comedy-club/mana-village-comedy-c
   height: 100%;
   object-fit: contain;
   border-radius: 50%;
-  filter: drop-shadow(0 0 12px rgba(255, 220, 120, 0.65));
+  filter: drop-shadow(0 0 10px rgba(255, 220, 120, 0.7));
 }
 
 @media (max-width: 680px) {
   .hero-logo-wrap {
     width: 125px;
     height: 125px;
-    right: 16px;
-    top: 18px;
+    right: 15px;
+    top: 20px;
     transform: none;
+  }
+}
+  </style> 
   }
 }
 </head>

@@ -590,36 +590,57 @@ https://raw.githubusercontent.com/mana-village-comedy-club/mana-village-comedy-c
   </p>
 </div>
 
+
 <script>
 (async function () {
-  const API_KEY = "AIzaSyCWcEZEiap63Mbqjcdm4Xg78yx7v8smlLo";
-  const CHANNEL_ID = "UCgJZzsaGk0hurNFpIcgD5aA";
+  // Paste your NEW API key here. Never share it publicly.
+  const API_KEY = "PASTE_YOUR_NEW_API_KEY_HERE";
+
+  // Your channel's Uploads Playlist ID
+  const UPLOADS_PLAYLIST_ID = "UUgJZzsaGk0hurNFpIcgD5aA";
+
   const container = document.getElementById("youtube-auto-videos");
 
+  if (!container) {
+    console.error("youtube-auto-videos container not found.");
+    return;
+  }
+
   try {
-    const params = new URLSearchParams({
+    // Get the latest 12 uploads without using Search Queries.
+    const playlistParams = new URLSearchParams({
       key: API_KEY,
-      channelId: CHANNEL_ID,
-      part: "snippet",
-      order: "date",
-      type: "video",
+      playlistId: UPLOADS_PLAYLIST_ID,
+      part: "snippet,contentDetails",
       maxResults: "12"
     });
 
-    const response = await fetch(
-      "https://www.googleapis.com/youtube/v3/search?" + params
+    const playlistResponse = await fetch(
+      "https://www.googleapis.com/youtube/v3/playlistItems?" +
+      playlistParams
     );
-    const data = await response.json();
 
-    if (!response.ok || !data.items) {
-      throw new Error(data.error?.message || "Could not load videos");
+    const playlistData = await playlistResponse.json();
+
+    if (!playlistResponse.ok || !playlistData.items) {
+      throw new Error(
+        playlistData.error?.message || "Could not load playlist"
+      );
     }
 
-    const ids = data.items.map(item => item.id.videoId).join(",");
-    if (!ids) {
+    const items = playlistData.items.filter(item =>
+      item.contentDetails?.videoId
+    );
+
+    if (!items.length) {
       container.textContent = "No videos found.";
       return;
     }
+
+    // Get view counts for the uploaded videos.
+    const ids = items
+      .map(item => item.contentDetails.videoId)
+      .join(",");
 
     const statsParams = new URLSearchParams({
       key: API_KEY,
@@ -628,49 +649,70 @@ https://raw.githubusercontent.com/mana-village-comedy-club/mana-village-comedy-c
     });
 
     const statsResponse = await fetch(
-      "https://www.googleapis.com/youtube/v3/videos?" + statsParams
+      "https://www.googleapis.com/youtube/v3/videos?" +
+      statsParams
     );
+
     const statsData = await statsResponse.json();
 
     if (!statsResponse.ok) {
-      throw new Error(statsData.error?.message || "Could not load views");
+      throw new Error(
+        statsData.error?.message || "Could not load video views"
+      );
     }
 
     const stats = Object.fromEntries(
       (statsData.items || []).map(video => [
-        video.id, video.statistics?.viewCount || "0"
+        video.id,
+        video.statistics?.viewCount || "0"
       ])
     );
 
-    container.innerHTML = data.items.map(item => {
-      const id = item.id.videoId;
+    const escapeHTML = value =>
+      String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[char]);
+
+    container.innerHTML = items.map(item => {
+      const id = item.contentDetails.videoId;
       const title = item.snippet.title;
-      const thumbnail = item.snippet.thumbnails.high?.url
-        || item.snippet.thumbnails.medium?.url;
+      const thumbnails = item.snippet.thumbnails || {};
+      const thumbnail =
+        thumbnails.high?.url ||
+        thumbnails.medium?.url ||
+        thumbnails.default?.url ||
+        "";
+
       const views = Number(stats[id] || 0).toLocaleString("en-IN");
 
       return `
         <a class="video-card"
-           href="https://www.youtube.com/watch?v=${id}"
+           href="https://www.youtube.com/watch?v=${encodeURIComponent(id)}"
            target="_blank" rel="noopener">
           <div class="poster"
-               style="--poster-bg:url('${thumbnail}') center/cover no-repeat">
+               style="--poster-bg:url('${escapeHTML(thumbnail)}') center/cover no-repeat">
             <span class="play-chip" aria-hidden="true">▶</span>
           </div>
           <div class="card-info">
-            <h3>${title.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;")}</h3>
+            <h3>${escapeHTML(title)}</h3>
             <p>Views: ${views}</p>
             <span class="card-link">Watch Video ↗</span>
           </div>
         </a>`;
     }).join("");
+
   } catch (error) {
     container.textContent =
-      "Videos could not load. Please check the YouTube API settings.";
-    console.error("YouTube videos:", error);
+      "Videos could not load. Please try again later.";
+    console.error("YouTube videos:", error.message);
   }
 })();
 </script>
+
 
 
         </section>

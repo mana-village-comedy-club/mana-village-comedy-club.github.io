@@ -1064,6 +1064,41 @@ loadSubscriberCount();
     Subscribe on YouTube
   </a>
 </section>
+  <script>
+document.addEventListener("DOMContentLoaded", async function () {
+  const countElement = document.getElementById("subscriber-count");
+  if (!countElement) return;
+
+  const API_KEY = "PASTE_YOUR_NEW_RESTRICTED_API_KEY_HERE";
+
+  try {
+    const url =
+      "https://www.googleapis.com/youtube/v3/channels" +
+      "?part=statistics&forHandle=%40ManaVillageComedyClub" +
+      "&key=" + encodeURIComponent(API_KEY);
+
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error?.message || "API request failed");
+    }
+
+    if (!data.items || data.items.length === 0) {
+      throw new Error("Channel not found");
+    }
+
+    const stats = data.items[0].statistics;
+    countElement.textContent = stats.hiddenSubscriberCount
+      ? "Count unavailable"
+      : Number(stats.subscriberCount).toLocaleString("en-IN");
+
+  } catch (error) {
+    console.error("Subscriber count error:", error);
+    countElement.textContent = "Count unavailable";
+  }
+});
+</script>
 </body>
 
 </html>

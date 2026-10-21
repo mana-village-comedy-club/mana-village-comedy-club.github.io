@@ -84,8 +84,8 @@
     .btn-red { background: linear-gradient(135deg,#ff555b,#d70b2e); box-shadow: 0 8px 28px #f0444d30, inset 0 1px 0 #ffffff40; }
     .btn-ghost { background: #ffffff0d; border-color: #ffffff30; backdrop-filter: blur(8px); }
     .btn-ghost:hover { background: #ffffff16; }
-    .hero { isolation: isolate; position: relative; display: flex; align-items: center; min-height: 610px; height: min(77vh,790px); padding: 80px var(--gutter) 92px; background: linear-gradient(135deg, #10071f 0%, #25103f 50%, #12091f 100%);
-    .hero-art { position: absolute; z-index: -2; inset: 0; overflow: hidden; background: radial-gradient(ellipse at 75% 35%, #a855f766 0%, transparent 38%), radial-gradient(ellipse at 90% 75%, #f5c45130 0%, transparent 35%), linear-gradient(115deg, #10071f 0%, #25103f 45%, #421b68 72%, #12091f 100%); }
+    .hero { isolation: isolate; position: relative; display: flex; align-items: center; min-height: 610px; height: min(77vh,790px); padding: 80px var(--gutter) 92px; background: #161015; }
+    .hero-art { position: absolute; z-index: -2; inset: 0; overflow: hidden; background: radial-gradient(ellipse at 75% 37%,#a640443d 0%,transparent 33%), radial-gradient(ellipse at 91% 70%,#d3944033 0%,transparent 34%), linear-gradient(115deg,#100b11 0%,#1d111a 47%,#28161e 72%,#171016 100%); }
     .hero-art:before { position:absolute; content:""; inset:0; z-index:3; background: linear-gradient(90deg,rgba(10,8,11,.99) 0%,rgba(10,8,11,.88) 32%,rgba(10,8,11,.35) 62%,rgba(10,8,11,.1) 100%),linear-gradient(0deg,#0a080b 0%,transparent 31%); }
     .spotlight { position:absolute; width:min(48vw,650px); aspect-ratio:1; right:3%; top:1%; border-radius:50%; background:radial-gradient(circle, #f5c67820 0%,#f5c67809 42%,transparent 68%); }
     .moon { position:absolute; right:17%; top:15%; width:clamp(100px,12vw,165px); aspect-ratio:1; border-radius:50%; background:linear-gradient(145deg,#fff0c2,#f4bd6b 72%); box-shadow:0 0 90px #f4b76340, inset -18px -17px 30px #b86d4a35; }
@@ -506,30 +506,6 @@ https://raw.githubusercontent.com/mana-village-comedy-club/mana-village-comedy-c
   </style> 
   }
 }
-  
-<style>
-#home {
-  background:
-    radial-gradient(
-      ellipse at 50% 20%,
-      rgba(212, 160, 23, 0.16),
-      transparent 65%
-    ),
-    linear-gradient(
-      135deg,
-      #08090d 0%,
-      #15131b 50%,
-      #050505 100%
-    ) !important;
-  color: #ffffff;
-}
-
-#home h1,
-#home h2 {
-  color: #f5c451;
-}
-</style>
-
 </head>
 <body>
   <div class="app-root">

@@ -480,30 +480,113 @@ https://raw.githubusercontent.com/mana-village-comedy-club/mana-village-comedy-c
   font-weight: 800;
 }
 
-/* Premium Mana Village Comedy Club Heading */
-.hero h1 {
-  font-size: clamp(38px, 6vw, 72px);
-  font-weight: 1000;
-  line-height: 1.12;
-  letter-spacing: -1.5px;
-  text-shadow: 0 0 18px rgba(255, 190, 60, 0.18);
+<style>
+/* Mana Village Comedy Club - Premium Theme */
+html {
+  scroll-behavior: smooth;
 }
 
-.hero h1 .accent {
-  color: #ffd166;
-  text-shadow:
-    0 0 8px rgba(255, 209, 102, 0.45),
-    0 0 24px rgba(255, 174, 0, 0.22);
+body {
+  background: #080914 !important;
+  color: #f5f3ff !important;
 }
 
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: clamp(34px, 9vw, 48px);
-    letter-spacing: -0.8px;
-  }
+.app-root {
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(109, 40, 217, 0.16),
+      transparent 48%
+    ),
+    #080914 !important;
+  min-height: 100vh;
 }
 
-  </style> 
+/* Premium navigation */
+header,
+nav {
+  background: rgba(9, 10, 23, 0.94) !important;
+  border-bottom: 1px solid rgba(167, 139, 250, 0.2);
+  backdrop-filter: blur(12px);
+}
+
+/* Hero background */
+#home {
+  background:
+    radial-gradient(
+      ellipse at 18% 12%,
+      rgba(124, 58, 237, 0.34),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 85% 8%,
+      rgba(245, 196, 81, 0.12),
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      #090b18 0%,
+      #1b1230 52%,
+      #080914 100%
+    ) !important;
+  color: #ffffff !important;
+}
+
+#home h1 {
+  color: #ffffff !important;
+  text-shadow: 0 0 28px rgba(167, 139, 250, 0.3);
+}
+
+#home h2 {
+  color: #f5d58a !important;
+}
+
+/* Section headings */
+#latest h2,
+#shorts h2,
+#family h2,
+#about h2 {
+  color: #d8b4fe !important;
+}
+
+#latest,
+#shorts,
+#family,
+#about {
+  scroll-margin-top: 90px;
+}
+
+/* Premium cards */
+.card,
+article,
+.video-card,
+.short-card,
+.gallery-card {
+  background: linear-gradient(
+    160deg,
+    rgba(29, 26, 49, 0.96),
+    rgba(12, 13, 26, 0.98)
+  );
+  border: 1px solid rgba(167, 139, 250, 0.18);
+  border-radius: 18px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+button,
+.btn,
+.button {
+  border-radius: 999px;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+button:hover,
+.btn:hover,
+.button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+</style>
 </head>
 <body>
   <div class="app-root">

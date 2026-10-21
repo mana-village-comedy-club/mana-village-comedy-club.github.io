@@ -357,12 +357,15 @@ https://raw.githubusercontent.com/mana-village-comedy-club/mana-village-comedy-c
   display: none !important;
 }
 
-/* Mana Village Comedy Club - Dasara background */
+/* Mana Village Comedy Club - Premium Purple Theme */
 .app-root {
   background:
-    linear-gradient(rgba(55, 18, 0, 0.12), rgba(35, 10, 0, 0.25)),
-    url('https://raw.githubusercontent.com/mana-village-comedy-club/mana-village-comedy-club.github.io/main/dasara-background.png.png')
-    center top / cover fixed no-repeat !important;
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(124, 58, 237, 0.22),
+      transparent 55%
+    ),
+    #080914 !important;
 }
 
 .hero {
@@ -371,18 +374,23 @@ https://raw.githubusercontent.com/mana-village-comedy-club/mana-village-comedy-c
 
 .hero-art {
   background:
-    url('https://raw.githubusercontent.com/mana-village-comedy-club/mana-village-comedy-club.github.io/main/dasara-background.png.png')
-    center center / cover no-repeat !important;
+    radial-gradient(
+      ellipse at 72% 28%,
+      rgba(124, 58, 237, 0.38),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 18% 80%,
+      rgba(236, 72, 153, 0.14),
+      transparent 42%
+    ),
+    linear-gradient(
+      135deg,
+      #090914 0%,
+      #19112b 52%,
+      #080914 100%
+    ) !important;
 }
-
-.hero-art:before {
-  background: linear-gradient(
-    90deg,
-    rgba(35, 10, 0, 0.30),
-    rgba(35, 10, 0, 0.08)
-  ) !important;
-}
-
 .hero-art > .spotlight,
 .hero-art > .moon,
 .hero-art > .ridge,

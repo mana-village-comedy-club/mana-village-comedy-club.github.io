@@ -627,6 +627,20 @@ url('/village-purple-background.jpg.png') center center / cover no-repeat !impor
 .hero-art > * {
   display: none !important;
 }
+
+/* Force the village image to show */
+.hero-art {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(10, 5, 25, 0.35),
+      rgba(10, 5, 25, 0.05)
+    ),
+    url('/village-purple-background.jpg.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
 </style>
 </head>
 <body>

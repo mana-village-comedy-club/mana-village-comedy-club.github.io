@@ -3,9 +3,6 @@
 <head> <link rel="icon" type="image/png" href="/LOGO.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
   <!-- After Google Search Console verification, add the exact verification meta tag here only if using the HTML-tag method. -->
   <meta name="theme-color" content="#0a080b" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
@@ -21,6 +18,9 @@
   <meta property="og:description" content="మన ఊరి మాటలు, మన ఊరి మజా, మన ఊరి కామెడీ — Telugu comedy Shorts and family entertainment." />
   <meta property="og:url" content="https://mana-village-comedy-club.github.io/" />
   <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <title>Mana Village Comedy Club - Official Website</title>
   <script type="application/ld+json">
   {
@@ -261,54 +261,51 @@
     
 
 
-/* Cleaned premium purple theme and village-photo hero background */
-html { scroll-behavior: smooth; }
-body { background: #080914 !important; color: #f5f3ff !important; }
+/* Mana Village Comedy Club - Premium Purple Theme */
 .app-root {
-  min-height: 100vh;
-  background: radial-gradient(ellipse at top, rgba(109, 40, 217, 0.16), transparent 48%), #080914 !important;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(124, 58, 237, 0.22),
+      transparent 55%
+    ),
+    #080914 !important;
 }
-header, nav {
-  background: rgba(9, 10, 23, 0.94) !important;
-  border-bottom: 1px solid rgba(167, 139, 250, 0.2);
-  backdrop-filter: blur(12px);
-}
-.hero { background: transparent !important; }
-#home { color: #fff !important; }
-#home h1 { color: #fff !important; text-shadow: 0 0 28px rgba(167, 139, 250, 0.3); }
-#home h2, #latest h2, #shorts h2, #family h2, #about h2 { color: #d8b4fe; }
-#latest, #shorts, #family, #about { scroll-margin-top: 90px; }
 
-/* The village photo is the hero background; keep text and logo above it. */
+.hero {
+  background: transparent !important;
+}
+
 .hero-art {
-  position: absolute !important;
-  z-index: 0 !important;
-  inset: 0 !important;
-  display: block !important;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-image:
-    linear-gradient(90deg, rgba(10, 5, 25, 0.58) 0%, rgba(10, 5, 25, 0.24) 52%, rgba(10, 5, 25, 0.05) 100%),
-    url('/village-purple-background.jpg.png') !important;
-  background-position: center center !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 72% 28%,
+      rgba(124, 58, 237, 0.38),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 18% 80%,
+      rgba(236, 72, 153, 0.14),
+      transparent 42%
+    ),
+    linear-gradient(
+      135deg,
+      #090914 0%,
+      #19112b 52%,
+      #080914 100%
+    ) !important;
 }
-.hero-art:before {
-  position: absolute;
-  content: "";
-  inset: 0;
-  z-index: 3;
-  background: linear-gradient(0deg, rgba(8, 5, 20, 0.55) 0%, transparent 42%) !important;
+.hero-art > .spotlight,
+.hero-art > .moon,
+.hero-art > .ridge,
+.hero-art > .fields,
+.hero-art > .hut,
+.hero-art > .tree,
+.hero-art > .poster-stack,
+.hero-art > .art-caption {
+  display: none !important;
 }
-.hero-art > * { display: none !important; }
-.hero-content { position: relative; z-index: 5; }
-
-/* Circular channel logo with golden glow */
+    /* Circular channel logo with golden glow */
 .hero-logo-wrap {
   position: absolute;
   z-index: 6;
@@ -321,10 +318,19 @@ header, nav {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 215, 100, 0.28), rgba(255, 170, 30, 0.08) 65%, transparent 72%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 100, 0.28),
+    rgba(255, 170, 30, 0.08) 65%,
+    transparent 72%
+  );
   border: 2px solid #ffd66b;
-  box-shadow: 0 0 10px #ffd66b, 0 0 30px rgba(255, 190, 50, 0.8), 0 0 60px rgba(255, 170, 30, 0.4);
+  box-shadow:
+    0 0 10px #ffd66b,
+    0 0 30px rgba(255, 190, 50, 0.8),
+    0 0 60px rgba(255, 170, 30, 0.4);
 }
+
 .hero-channel-logo {
   display: block;
   width: 100%;
@@ -333,82 +339,284 @@ header, nav {
   border-radius: 50%;
   filter: drop-shadow(0 0 10px rgba(255, 220, 120, 0.7));
 }
-@media (max-width: 680px) {
-  .hero-logo-wrap { width: 125px; height: 125px; right: 15px; top: 20px; transform: none; }
-}
 
-/* Premium video cards */
+@media (max-width: 680px) {
+  .hero-logo-wrap {
+    width: 125px;
+    height: 125px;
+    right: 15px;
+    top: 20px;
+    transform: none;
+  }
+}
+  
+/* Premium Gold Video Cards */
 .video-card {
   border: 1px solid rgba(255, 215, 120, 0.28);
   border-radius: 18px;
   overflow: hidden;
   background: linear-gradient(145deg, #171717, #090909);
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+              border-color 0.3s ease;
 }
+
 .video-card:hover {
   transform: translateY(-6px);
   border-color: rgba(255, 205, 90, 0.9);
   box-shadow: 0 10px 32px rgba(255, 180, 35, 0.22);
 }
-.video-card .poster { border-radius: 17px 17px 0 0; overflow: hidden; }
-.video-card .card-info { padding: 15px; }
-.video-card .card-info h3 { color: #fff4d6; font-size: 15px; line-height: 1.5; }
-.video-card .card-info p { color: #d1b66f; font-size: 12px; }
-.video-card .card-link { color: #ffd166; font-weight: 800; }
 
-
-
-/* ==========================================================
-   MASS CINEMATIC TITLE — header + hero only
-   Keeps the existing layout, village background and sizing.
-   ========================================================== */
-.brand-name {
-  font-family: "Anton", Impact, "Arial Narrow", sans-serif !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.35px;
-  text-transform: uppercase;
-  color: #ffffff !important;
-  text-shadow:
-    1px 1px 0 #e11d2e,
-    2px 2px 0 #8b0000,
-    0 0 10px rgba(225, 29, 46, 0.35);
+.video-card .poster {
+  border-radius: 17px 17px 0 0;
+  overflow: hidden;
 }
 
-/* Keep the small header tagline readable and unchanged in size/color. */
+.video-card .card-info {
+  padding: 15px;
+}
+
+.video-card .card-info h3 {
+  color: #fff4d6;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.video-card .card-info p {
+  color: #d1b66f;
+  font-size: 12px;
+}
+
+.video-card .card-link {
+  color: #ffd166;
+  font-weight: 800;
+}
+
+/* Mana Village Comedy Club - Premium Theme */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #080914 !important;
+  color: #f5f3ff !important;
+}
+
+.app-root {
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(109, 40, 217, 0.16),
+      transparent 48%
+    ),
+    #080914 !important;
+  min-height: 100vh;
+}
+
+/* Premium navigation */
+header,
+nav {
+  background: rgba(9, 10, 23, 0.94) !important;
+  border-bottom: 1px solid rgba(167, 139, 250, 0.2);
+  backdrop-filter: blur(12px);
+}
+
+/* Hero background */
+#home {
+  background:
+    radial-gradient(
+      ellipse at 18% 12%,
+      rgba(124, 58, 237, 0.34),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 85% 8%,
+      rgba(245, 196, 81, 0.12),
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      #090b18 0%,
+      #1b1230 52%,
+      #080914 100%
+    ) !important;
+  color: #ffffff !important;
+}
+
+#home h1 {
+  color: #ffffff !important;
+  text-shadow: 0 0 28px rgba(167, 139, 250, 0.3);
+}
+
+#home h2 {
+  color: #f5d58a !important;
+}
+
+/* Section headings */
+#latest h2,
+#shorts h2,
+#family h2,
+#about h2 {
+  color: #d8b4fe !important;
+}
+
+#latest,
+#shorts,
+#family,
+#about {
+  scroll-margin-top: 90px;
+}
+
+/* Premium cards */
+.card,
+article,
+.video-card,
+.short-card,
+.gallery-card {
+  background: linear-gradient(
+    160deg,
+    rgba(29, 26, 49, 0.96),
+    rgba(12, 13, 26, 0.98)
+  );
+  border: 1px solid rgba(167, 139, 250, 0.18);
+  border-radius: 18px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+button,
+.btn,
+.button {
+  border-radius: 999px;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+button:hover,
+.btn:hover,
+.button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+/* Premium Purple Village Background */
+.hero-art {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 5, 25, 0.72) 0%,
+      rgba(10, 5, 25, 0.38) 48%,
+      rgba(10, 5, 25, 0.08) 100%
+    ),
+    
+url('/village-purple-background.jpg.png') center center / cover no-repeat !important;
+    center center / cover no-repeat !important;
+}
+
+.hero-art:before {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 5, 25, 0.35) 0%,
+      transparent 75%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(8, 5, 20, 0.72) 0%,
+      transparent 35%
+    ) !important;
+}
+
+.hero-art > * {
+  display: none !important;
+}
+
+/* Force the village image to show */
+.hero-art {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(10, 5, 25, 0.35),
+      rgba(10, 5, 25, 0.05)
+    ),
+    url('/village-purple-background.jpg.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.hero-art:before {
+  background: linear-gradient(
+    90deg,
+    rgba(10, 5, 25, 0.20) 0%,
+    rgba(10, 5, 25, 0.05) 100%
+  ) !important;
+}
+  
+/* Village background visibility fix */
+.app-root .hero-art {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: url('/village-purple-background.jpg.png') center center / cover no-repeat !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: none;
+}
+
+.app-root .hero-art:before {
+  background: linear-gradient(
+    90deg,
+    rgba(10, 5, 25, 0.35),
+    rgba(10, 5, 25, 0.05)
+  ) !important;
+}
+
+
+
+/* FINAL SAFE OVERRIDES — cinematic silver-white titles, purple village background preserved */
+.hero-art {
+  background:
+    linear-gradient(90deg, rgba(10, 5, 25, 0.72) 0%, rgba(10, 5, 25, 0.38) 48%, rgba(10, 5, 25, 0.08) 100%),
+    url('/village-purple-background.jpg.png') center center / cover no-repeat !important;
+}
+
+.brand-name,
+.hero-content h1,
+.hero-content h1 .accent {
+  font-family: 'Oxanium', 'Arial', sans-serif !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow:
+    0 1px 0 #f7f7fb,
+    0 2px 0 #d3d5dd,
+    0 3px 0 #a7aab5,
+    0 4px 0 #737783,
+    0 7px 14px rgba(0, 0, 0, 0.62),
+    0 0 18px rgba(255, 255, 255, 0.16) !important;
+}
+
+/* Keep the header tagline's original small gold styling */
 .brand-name > span {
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif !important;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif !important;
+  color: var(--gold) !important;
+  -webkit-text-fill-color: var(--gold) !important;
   text-shadow: none !important;
-}
-
-/* Only the large hero heading receives the cinematic display font. */
-#home .hero-content h1 {
-  font-family: "Anton", Impact, "Arial Narrow", sans-serif !important;
-  font-weight: 400 !important;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 2.6px;
   text-transform: uppercase;
-  letter-spacing: -0.6px;
-  color: #ffffff !important;
-  text-shadow:
-    2px 2px 0 #e11d2e,
-    4px 4px 0 #8b0000,
-    0 0 18px rgba(225, 29, 46, 0.40);
 }
 
-#home .hero-content h1 .accent {
-  color: #ff3038 !important;
-  text-shadow:
-    2px 2px 0 #ffffff,
-    4px 4px 0 #8b0000;
-}
-
-/* Keep Telugu headline styling/readability and original layout. */
-#home .hero-content h1 .telugu-headline {
-  font-family: Inter, system-ui, "Noto Sans Telugu", sans-serif !important;
-  text-transform: none;
-  letter-spacing: -0.65px;
+/* Preserve Telugu subtitle styling and readability */
+.hero-content h1 .telugu-headline {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif !important;
   color: #ffd9d5 !important;
+  -webkit-text-fill-color: #ffd9d5 !important;
+  letter-spacing: -0.65px !important;
   text-shadow: none !important;
-  -webkit-text-stroke: 0;
+  text-transform: none !important;
 }
 
 </style>
@@ -760,32 +968,168 @@ header, nav {
     measurementId: "G-MX2VFRBF2G"
   };
 
-  if (!window.firebase) return;
-  if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
 
-  firebase.firestore().collection("siteSettings").doc("homepage").get()
+  firebase.firestore()
+    .collection("siteSettings")
+    .doc("homepage")
+    .get()
     .then(function (snapshot) {
       if (!snapshot.exists) return;
-      const data = snapshot.data() || {};
+
+      const data = snapshot.data();
 
       if (data.title) {
         document.title = data.title;
-        const ogTitle = document.querySelector('meta[property="og:title"]');
+
+        const ogTitle = document.querySelector(
+          'meta[property="og:title"]'
+        );
+
         if (ogTitle) ogTitle.content = data.title;
       }
 
-      if (data.description) {
-        const ogDescription = document.querySelector('meta[property="og:description"]');
-        if (ogDescription) ogDescription.content = data.description;
-        const heroCopy = document.querySelector(".hero-copy");
-        if (heroCopy) heroCopy.textContent = data.description;
+      const ogDescription = document.querySelector('meta[property="og:description"]');
+      if (data.description && ogDescription) {
+        ogDescription.content = data.description;
       }
+
+      const heroCopy = document.querySelector(".hero-copy");
+      if (data.description && heroCopy) heroCopy.textContent = data.description;
     })
     .catch(function (error) {
       console.error("Could not load website settings:", error);
     });
 })();
 </script>
+
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore-compat.js"></script>
+
+  
+<script>
+(function () {
+  const firebaseConfig = {
+    apiKey: "AIzaSyDlZJSxgNA62XPgJ_5-Rjia-0E3rXBlBq0",
+    authDomain: "mana-village-comedy-club-admin.firebaseapp.com",
+    projectId: "mana-village-comedy-club-admin",
+    storageBucket: "mana-village-comedy-club-admin.firebasestorage.app",
+    messagingSenderId: "884085850855",
+    appId: "1:884085850855:web:72539600123a09035ed842",
+    measurementId: "G-MX2VFRBF2G"
+  };
+
+  const ADMIN_EMAIL = "sandrasrihari2002@gmail.com";
+
+  const topActions = document.querySelector(".top-actions");
+  const header = document.querySelector(".topbar");
+
+  if (!topActions || !header || !window.firebase) {
+    console.error("Firebase SDK or website header is missing.");
+    return;
+  }
+
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+
+  const auth = firebase.auth();
+
+  function makeButton(id, text, className) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.id = id;
+    button.className = className;
+    button.textContent = text;
+    return button;
+  }
+
+  const loginButton = makeButton(
+    "mvccAdminLogin",
+    "Admin Login",
+    "btn btn-ghost"
+  );
+
+  const dashboardButton = makeButton(
+    "mvccAdminDashboard",
+    "Admin Dashboard",
+    "btn btn-ghost"
+  );
+
+  const logoutButton = makeButton(
+    "mvccAdminLogout",
+    "Logout",
+    "btn btn-ghost"
+  );
+
+  const subscribeButton = topActions.querySelector("a.btn-red");
+
+  topActions.insertBefore(loginButton, subscribeButton);
+  topActions.insertBefore(dashboardButton, subscribeButton);
+  topActions.insertBefore(logoutButton, subscribeButton);
+
+  dashboardButton.style.display = "none";
+  logoutButton.style.display = "none";
+
+  const dashboard = document.createElement("section");
+  dashboard.id = "mvccAdminPanel";
+  dashboard.style.cssText =
+    "display:none;margin:18px;padding:22px;border:1px solid #f7cf86;" +
+    "border-radius:14px;background:#20171e;color:#fffaf6;";
+
+
+const db = firebase.firestore();
+
+const settingsForm = dashboard.querySelector("#mvccSiteSettingsForm");
+const titleInput = dashboard.querySelector("#mvccSiteTitle");
+const descriptionInput = dashboard.querySelector("#mvccSiteDescription");
+const saveStatus = dashboard.querySelector("#mvccSaveStatus");
+
+async function loadSiteSettings() {
+  const snapshot = await db.collection("siteSettings").doc("main").get();
+
+  if (snapshot.exists) {
+    const data = snapshot.data();
+    if (data.siteTitle) titleInput.value = data.siteTitle;
+    if (data.description) descriptionInput.value = data.description;
+  }
+}
+
+settingsForm.addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+  const user = auth.currentUser;
+  if (
+    !user ||
+    user.email?.toLowerCase() !== ADMIN_EMAIL.toLowerCase() ||
+    !user.emailVerified
+  ) {
+    saveStatus.textContent = "Admin sign-in required.";
+    return;
+  }
+
+  saveStatus.textContent = "Saving...";
+
+  try {
+  await db.collection("siteSettings").doc("homepage").set({
+    title: titleInput.value.trim(),
+    description: descriptionInput.value.trim(),
+    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+  }, { merge: true });
+
+    saveStatus.textContent = "Website details saved successfully!";
+  } catch (error) {
+    console.error(error);
+    saveStatus.textContent =
+      "Save failed: " + (error.message || error.code);
+  }
+});
+})();
+</script>
+
 
 <script>
 async function loadSubscriberCount() {

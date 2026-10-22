@@ -593,6 +593,35 @@ button:hover,
 .button:hover {
   filter: brightness(1.1);
   transform: translateY(-1px);
+/* Premium Purple Village Background */
+.hero-art {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 5, 25, 0.72) 0%,
+      rgba(10, 5, 25, 0.38) 48%,
+      rgba(10, 5, 25, 0.08) 100%
+    ),
+    url('/village-purple-background.jpg')
+    center center / cover no-repeat !important;
+}
+
+.hero-art:before {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 5, 25, 0.35) 0%,
+      transparent 75%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(8, 5, 20, 0.72) 0%,
+      transparent 35%
+    ) !important;
+}
+
+.hero-art > * {
+  display: none !important;
 }
 </style>
 </head>

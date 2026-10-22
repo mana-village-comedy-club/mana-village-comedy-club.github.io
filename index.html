@@ -624,6 +624,29 @@ url('/village-purple-background.jpg.png') center center / cover no-repeat !impor
     rgba(10, 5, 25, 0.05) 100%
   ) !important;
 }
+  
+/* Village background visibility fix */
+.app-root .hero-art {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: url('/village-purple-background.jpg.png') center center / cover no-repeat !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: none;
+}
+
+.app-root .hero-art:before {
+  background: linear-gradient(
+    90deg,
+    rgba(10, 5, 25, 0.35),
+    rgba(10, 5, 25, 0.05)
+  ) !important;
+}
+
 </style>
 </head>
 <body>

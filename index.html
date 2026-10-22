@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="te">
-<head> <link rel="icon" type="image/png" href="/LOGO.png">
+<head> <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- After Google Search Console verification, add the exact verification meta tag here only if using the HTML-tag method. -->
@@ -43,7 +43,29 @@
     ]
   }
   </script>
-  <style>
+  <style> /* Mass Cinematic — large hero title only */
+.hero h1 {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.05;
+  color: #ffffff;
+  -webkit-text-stroke: 0.5px #ffffff;
+  text-shadow:
+    2px 2px 0 #e11d2e,
+    4px 4px 0 #8b0000,
+    0 0 18px rgba(225, 29, 46, 0.35);
+}
+
+/* Red emphasis for title words already wrapped in spans */
+.hero h1 span {
+  color: #ff3038;
+  -webkit-text-stroke: 0.5px #ff3038;
+  text-shadow:
+    2px 2px 0 #ffffff,
+    4px 4px 0 #8b0000;
+}
     :root {
       color-scheme: dark;
       --bg: #0a080b;

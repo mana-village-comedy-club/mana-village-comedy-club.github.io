@@ -258,135 +258,54 @@
     
 
 
-/* Mana Village Comedy Club - Premium Dasara Background */
+/* Cleaned premium purple theme and village-photo hero background */
+html { scroll-behavior: smooth; }
+body { background: #080914 !important; color: #f5f3ff !important; }
 .app-root {
-  background:
-    linear-gradient(
-      rgba(70, 27, 0, 0.18),
-      rgba(50, 15, 0, 0.30)
-    ),
-    
-https://raw.githubusercontent.com/mana-village-comedy-club/mana-village-comedy-club.github.io/main/dasara-background.png.png
-
-    linear-gradient(135deg, #8e3309, #f59b21, #6d2108);
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top, rgba(109, 40, 217, 0.16), transparent 48%), #080914 !important;
 }
-
-.hero {
-  background: transparent;
+header, nav {
+  background: rgba(9, 10, 23, 0.94) !important;
+  border-bottom: 1px solid rgba(167, 139, 250, 0.2);
+  backdrop-filter: blur(12px);
 }
+.hero { background: transparent !important; }
+#home { color: #fff !important; }
+#home h1 { color: #fff !important; text-shadow: 0 0 28px rgba(167, 139, 250, 0.3); }
+#home h2, #latest h2, #shorts h2, #family h2, #about h2 { color: #d8b4fe; }
+#latest, #shorts, #family, #about { scroll-margin-top: 90px; }
 
+/* The village photo is the hero background; keep text and logo above it. */
 .hero-art {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
+  position: absolute !important;
+  z-index: 0 !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(10, 5, 25, 0.72) 0%,
-      rgba(10, 5, 25, 0.38) 48%,
-      rgba(10, 5, 25, 0.08) 100%
-    ),
-    url('/village-purple-background.jpg.png') center center / cover no-repeat !important;
+  background-image:
+    linear-gradient(90deg, rgba(10, 5, 25, 0.58) 0%, rgba(10, 5, 25, 0.24) 52%, rgba(10, 5, 25, 0.05) 100%),
+    url('/village-purple-background.jpg.png') !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: none;
 }
-
 .hero-art:before {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(25, 10, 0, 0.48),
-      rgba(25, 10, 0, 0.14) 72%,
-      rgba(25, 10, 0, 0.05)
-    ),
-    linear-gradient(
-      0deg,
-      rgba(10, 8, 11, 0.28),
-      transparent 35%
-    );
+  position: absolute;
+  content: "";
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(0deg, rgba(8, 5, 20, 0.55) 0%, transparent 42%) !important;
 }
+.hero-art > * { display: none !important; }
+.hero-content { position: relative; z-index: 5; }
 
-.hero-art > .spotlight,
-.hero-art > .moon,
-.hero-art > .ridge,
-.hero-art > .fields,
-.hero-art > .hut,
-.hero-art > .tree,
-.hero-art > .poster-stack,
-.hero-art > .art-caption {
-  display: none;
-}
-
-}
-
-}
-
-/* Premium Dasara background */
-.app-root {
-  background:
-    linear-gradient(rgba(35, 12, 0, 0.35), rgba(20, 8, 0, 0.55)),
-    
-
-https://raw.githubusercontent.com/mana-village-comedy-club/mana-village-comedy-club.github.io/main/dasara-background.png.png
-
-
-    center top / cover fixed no-repeat !important;
-}
-
-.hero {
-  background: transparent !important;
-}
-
-.hero-art {
-  background:
-  
-https://raw.githubusercontent.com/mana-village-comedy-club/mana-village-comedy-club.github.io/main/dasara-background.png.png
-    center center / cover no-repeat !important;
-}
-/* Mana Village Comedy Club - Premium Purple Theme */
-.app-root {
-  background:
-    radial-gradient(
-      ellipse at 50% 0%,
-      rgba(124, 58, 237, 0.22),
-      transparent 55%
-    ),
-    #080914 !important;
-}
-
-.hero {
-  background: transparent !important;
-}
-
-.hero-art {
-  background:
-    radial-gradient(
-      ellipse at 72% 28%,
-      rgba(124, 58, 237, 0.38),
-      transparent 48%
-    ),
-    radial-gradient(
-      ellipse at 18% 80%,
-      rgba(236, 72, 153, 0.14),
-      transparent 42%
-    ),
-    linear-gradient(
-      135deg,
-      #090914 0%,
-      #19112b 52%,
-      #080914 100%
-    ) !important;
-}
-.hero-art > .spotlight,
-.hero-art > .moon,
-.hero-art > .ridge,
-.hero-art > .fields,
-.hero-art > .hut,
-.hero-art > .tree,
-.hero-art > .poster-stack,
-.hero-art > .art-caption {
-  display: none !important;
-}
-    /* Circular channel logo with golden glow */
+/* Circular channel logo with golden glow */
 .hero-logo-wrap {
   position: absolute;
   z-index: 6;
@@ -399,19 +318,10 @@ https://raw.githubusercontent.com/mana-village-comedy-club/mana-village-comedy-c
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 215, 100, 0.28),
-    rgba(255, 170, 30, 0.08) 65%,
-    transparent 72%
-  );
+  background: radial-gradient(circle, rgba(255, 215, 100, 0.28), rgba(255, 170, 30, 0.08) 65%, transparent 72%);
   border: 2px solid #ffd66b;
-  box-shadow:
-    0 0 10px #ffd66b,
-    0 0 30px rgba(255, 190, 50, 0.8),
-    0 0 60px rgba(255, 170, 30, 0.4);
+  box-shadow: 0 0 10px #ffd66b, 0 0 30px rgba(255, 190, 50, 0.8), 0 0 60px rgba(255, 170, 30, 0.4);
 }
-
 .hero-channel-logo {
   display: block;
   width: 100%;
@@ -420,239 +330,29 @@ https://raw.githubusercontent.com/mana-village-comedy-club/mana-village-comedy-c
   border-radius: 50%;
   filter: drop-shadow(0 0 10px rgba(255, 220, 120, 0.7));
 }
-
 @media (max-width: 680px) {
-  .hero-logo-wrap {
-    width: 125px;
-    height: 125px;
-    right: 15px;
-    top: 20px;
-    transform: none;
-  }
+  .hero-logo-wrap { width: 125px; height: 125px; right: 15px; top: 20px; transform: none; }
 }
-  
-/* Premium Gold Video Cards */
+
+/* Premium video cards */
 .video-card {
   border: 1px solid rgba(255, 215, 120, 0.28);
   border-radius: 18px;
   overflow: hidden;
   background: linear-gradient(145deg, #171717, #090909);
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease,
-              border-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
-
 .video-card:hover {
   transform: translateY(-6px);
   border-color: rgba(255, 205, 90, 0.9);
   box-shadow: 0 10px 32px rgba(255, 180, 35, 0.22);
 }
-
-.video-card .poster {
-  border-radius: 17px 17px 0 0;
-  overflow: hidden;
-}
-
-.video-card .card-info {
-  padding: 15px;
-}
-
-.video-card .card-info h3 {
-  color: #fff4d6;
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-.video-card .card-info p {
-  color: #d1b66f;
-  font-size: 12px;
-}
-
-.video-card .card-link {
-  color: #ffd166;
-  font-weight: 800;
-}
-
-<style>
-/* Mana Village Comedy Club - Premium Theme */
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: #080914 !important;
-  color: #f5f3ff !important;
-}
-
-.app-root {
-  background:
-    radial-gradient(
-      ellipse at top,
-      rgba(109, 40, 217, 0.16),
-      transparent 48%
-    ),
-    #080914 !important;
-  min-height: 100vh;
-}
-
-/* Premium navigation */
-header,
-nav {
-  background: rgba(9, 10, 23, 0.94) !important;
-  border-bottom: 1px solid rgba(167, 139, 250, 0.2);
-  backdrop-filter: blur(12px);
-}
-
-/* Hero background */
-#home {
-  background:
-    radial-gradient(
-      ellipse at 18% 12%,
-      rgba(124, 58, 237, 0.34),
-      transparent 48%
-    ),
-    radial-gradient(
-      ellipse at 85% 8%,
-      rgba(245, 196, 81, 0.12),
-      transparent 34%
-    ),
-    linear-gradient(
-      135deg,
-      #090b18 0%,
-      #1b1230 52%,
-      #080914 100%
-    ) !important;
-  color: #ffffff !important;
-}
-
-#home h1 {
-  color: #ffffff !important;
-  text-shadow: 0 0 28px rgba(167, 139, 250, 0.3);
-}
-
-#home h2 {
-  color: #f5d58a !important;
-}
-
-/* Section headings */
-#latest h2,
-#shorts h2,
-#family h2,
-#about h2 {
-  color: #d8b4fe !important;
-}
-
-#latest,
-#shorts,
-#family,
-#about {
-  scroll-margin-top: 90px;
-}
-
-/* Premium cards */
-.card,
-article,
-.video-card,
-.short-card,
-.gallery-card {
-  background: linear-gradient(
-    160deg,
-    rgba(29, 26, 49, 0.96),
-    rgba(12, 13, 26, 0.98)
-  );
-  border: 1px solid rgba(167, 139, 250, 0.18);
-  border-radius: 18px;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
-}
-
-/* Buttons */
-button,
-.btn,
-.button {
-  border-radius: 999px;
-  transition: transform 0.2s ease, filter 0.2s ease;
-}
-
-button:hover,
-.btn:hover,
-.button:hover {
-  filter: brightness(1.1);
-  transform: translateY(-1px);
-/* Premium Purple Village Background */
-.hero-art {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(10, 5, 25, 0.72) 0%,
-      rgba(10, 5, 25, 0.38) 48%,
-      rgba(10, 5, 25, 0.08) 100%
-    ),
-    
-url('/village-purple-background.jpg.png') center center / cover no-repeat !important;
-    center center / cover no-repeat !important;
-}
-
-.hero-art:before {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(10, 5, 25, 0.35) 0%,
-      transparent 75%
-    ),
-    linear-gradient(
-      0deg,
-      rgba(8, 5, 20, 0.72) 0%,
-      transparent 35%
-    ) !important;
-}
-
-.hero-art > * {
-  display: none !important;
-}
-
-/* Force the village image to show */
-.hero-art {
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(10, 5, 25, 0.35),
-      rgba(10, 5, 25, 0.05)
-    ),
-    url('/village-purple-background.jpg.png') !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-}
-
-.hero-art:before {
-  background: linear-gradient(
-    90deg,
-    rgba(10, 5, 25, 0.20) 0%,
-    rgba(10, 5, 25, 0.05) 100%
-  ) !important;
-}
-  
-/* Village background visibility fix */
-.app-root .hero-art {
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 0 !important;
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  background: url('/village-purple-background.jpg.png') center center / cover no-repeat !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: none;
-}
-
-.app-root .hero-art:before {
-  background: linear-gradient(
-    90deg,
-    rgba(10, 5, 25, 0.35),
-    rgba(10, 5, 25, 0.05)
-  ) !important;
-}
+.video-card .poster { border-radius: 17px 17px 0 0; overflow: hidden; }
+.video-card .card-info { padding: 15px; }
+.video-card .card-info h3 { color: #fff4d6; font-size: 15px; line-height: 1.5; }
+.video-card .card-info p { color: #d1b66f; font-size: 12px; }
+.video-card .card-link { color: #ffd166; font-weight: 800; }
 
 </style>
 </head>

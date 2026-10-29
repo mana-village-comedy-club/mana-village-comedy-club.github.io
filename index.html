@@ -275,12 +275,14 @@
       position: absolute;
       inset: 0;
       z-index: 0;
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
       pointer-events: none;
     }
+
     .hero-art {
       position: absolute !important;
       inset: 0 !important;
@@ -720,8 +722,8 @@
     <main id="home">
       <section class="hero" aria-label="Welcome to Mana Village Comedy Club">
         <div class="hero-art" aria-hidden="true">
-          <video class="hero-background-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true" poster="/village-purple-background.jpg.png">
-            <source src="/village-intro.mp4" type="video/mp4" />
+          <video class="hero-background-video" autoplay muted loop playsinline preload="metadata" poster="/village-purple-background.jpg.png" aria-hidden="true">
+            <source src="/village-intro.mp4.mp4" type="video/mp4" />
           </video>
           <div class="spotlight"></div><div class="moon"></div><div class="ridge"></div><div class="fields"></div><div class="hut"></div><div class="tree one"></div><div class="tree two"></div>
           <div class="poster-stack">
@@ -1091,132 +1093,6 @@
 })();
 </script>
 
-<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore-compat.js"></script>
-
-  
-<script>
-(function () {
-  const firebaseConfig = {
-    apiKey: "AIzaSyDlZJSxgNA62XPgJ_5-Rjia-0E3rXBlBq0",
-    authDomain: "mana-village-comedy-club-admin.firebaseapp.com",
-    projectId: "mana-village-comedy-club-admin",
-    storageBucket: "mana-village-comedy-club-admin.firebasestorage.app",
-    messagingSenderId: "884085850855",
-    appId: "1:884085850855:web:72539600123a09035ed842",
-    measurementId: "G-MX2VFRBF2G"
-  };
-
-  const ADMIN_EMAIL = "sandrasrihari2002@gmail.com";
-
-  const topActions = document.querySelector(".top-actions");
-  const header = document.querySelector(".topbar");
-
-  if (!topActions || !header || !window.firebase) {
-    console.error("Firebase SDK or website header is missing.");
-    return;
-  }
-
-  if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-  }
-
-  const auth = firebase.auth();
-
-  function makeButton(id, text, className) {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.id = id;
-    button.className = className;
-    button.textContent = text;
-    return button;
-  }
-
-  const loginButton = makeButton(
-    "mvccAdminLogin",
-    "Admin Login",
-    "btn btn-ghost"
-  );
-
-  const dashboardButton = makeButton(
-    "mvccAdminDashboard",
-    "Admin Dashboard",
-    "btn btn-ghost"
-  );
-
-  const logoutButton = makeButton(
-    "mvccAdminLogout",
-    "Logout",
-    "btn btn-ghost"
-  );
-
-  const subscribeButton = topActions.querySelector("a.btn-red");
-
-  topActions.insertBefore(loginButton, subscribeButton);
-  topActions.insertBefore(dashboardButton, subscribeButton);
-  topActions.insertBefore(logoutButton, subscribeButton);
-
-  dashboardButton.style.display = "none";
-  logoutButton.style.display = "none";
-
-  const dashboard = document.createElement("section");
-  dashboard.id = "mvccAdminPanel";
-  dashboard.style.cssText =
-    "display:none;margin:18px;padding:22px;border:1px solid #f7cf86;" +
-    "border-radius:14px;background:#20171e;color:#fffaf6;";
-
-
-const db = firebase.firestore();
-
-const settingsForm = dashboard.querySelector("#mvccSiteSettingsForm");
-const titleInput = dashboard.querySelector("#mvccSiteTitle");
-const descriptionInput = dashboard.querySelector("#mvccSiteDescription");
-const saveStatus = dashboard.querySelector("#mvccSaveStatus");
-
-async function loadSiteSettings() {
-  const snapshot = await db.collection("siteSettings").doc("main").get();
-
-  if (snapshot.exists) {
-    const data = snapshot.data();
-    if (data.siteTitle) titleInput.value = data.siteTitle;
-    if (data.description) descriptionInput.value = data.description;
-  }
-}
-
-settingsForm.addEventListener("submit", async function (event) {
-  event.preventDefault();
-
-  const user = auth.currentUser;
-  if (
-    !user ||
-    user.email?.toLowerCase() !== ADMIN_EMAIL.toLowerCase() ||
-    !user.emailVerified
-  ) {
-    saveStatus.textContent = "Admin sign-in required.";
-    return;
-  }
-
-  saveStatus.textContent = "Saving...";
-
-  try {
-  await db.collection("siteSettings").doc("homepage").set({
-    title: titleInput.value.trim(),
-    description: descriptionInput.value.trim(),
-    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-  }, { merge: true });
-
-    saveStatus.textContent = "Website details saved successfully!";
-  } catch (error) {
-    console.error(error);
-    saveStatus.textContent =
-      "Save failed: " + (error.message || error.code);
-  }
-});
-})();
-</script>
-
-
 <script>
 async function loadSubscriberCount() {
   const countElement = document.getElementById("subscriber-count");
@@ -1261,6 +1137,6 @@ async function loadSubscriberCount() {
 document.addEventListener("DOMContentLoaded", loadSubscriberCount);
 </script>
  
-</body> 
+</body>
 
 </html>

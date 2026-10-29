@@ -271,6 +271,16 @@
       background: transparent !important;
     }
 
+    .hero-background-video {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      pointer-events: none;
+    }
     .hero-art {
       position: absolute !important;
       inset: 0 !important;
@@ -710,6 +720,9 @@
     <main id="home">
       <section class="hero" aria-label="Welcome to Mana Village Comedy Club">
         <div class="hero-art" aria-hidden="true">
+          <video class="hero-background-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true" poster="/village-purple-background.jpg.png">
+            <source src="/village-intro.mp4" type="video/mp4" />
+          </video>
           <div class="spotlight"></div><div class="moon"></div><div class="ridge"></div><div class="fields"></div><div class="hut"></div><div class="tree one"></div><div class="tree two"></div>
           <div class="poster-stack">
             <div class="mini-poster one"><span class="emoji">😂</span><div><small>QUICK LAUGHS</small><strong>Comedy<br />Shorts</strong></div></div>

@@ -698,6 +698,187 @@
       }
     }
 
+  
+
+    /* =========================================================
+       MANA VILLAGE COMEDY CLUB — NETFLIX PREMIUM DESIGN UPDATE
+       Additive overrides: preserve all existing content and links.
+       ========================================================= */
+    :root {
+      --mvcc-silver: #f4f6fb;
+      --mvcc-silver-dim: #aeb7c8;
+      --mvcc-purple: #8b5cf6;
+      --mvcc-red: #e5093e;
+    }
+
+    body {
+      background:
+        radial-gradient(ellipse at 50% -12%, rgba(105, 65, 190, .22), transparent 48%),
+        #08070c;
+    }
+
+    .app-root {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(102, 64, 190, .14), transparent 52%),
+        #08070c !important;
+    }
+
+    .topbar {
+      background: rgba(7, 6, 12, .91);
+      border-bottom-color: rgba(210, 220, 255, .13);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .22);
+    }
+
+    .brand-name { color: #f7f8ff; }
+    .brand-name span { color: #c4b5fd; }
+    .nav a { transition: color .22s ease, opacity .22s ease, text-shadow .22s ease; }
+    .nav a:hover { color: #d8c8ff; text-shadow: 0 0 16px rgba(167, 139, 250, .7); }
+
+    /* Cinematic silver 3D hero typography */
+    h1 {
+      color: transparent;
+      background: linear-gradient(180deg, #ffffff 0%, #e8edf7 34%, #aab4c7 58%, #ffffff 76%, #8994a9 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-stroke: .45px rgba(255,255,255,.38);
+      filter: drop-shadow(0 2px 0 rgba(255,255,255,.16))
+              drop-shadow(0 5px 0 rgba(83,91,112,.48))
+              drop-shadow(0 13px 18px rgba(0,0,0,.62));
+      text-wrap: balance;
+    }
+    h1 .accent {
+      color: transparent;
+      background: linear-gradient(180deg, #fff 0%, #e9e9f4 38%, #b9a8e9 68%, #fff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    .telugu-headline {
+      color: #f2edff;
+      text-shadow: 0 2px 0 rgba(75, 54, 112, .9), 0 5px 18px rgba(0,0,0,.75);
+    }
+    .shelf-title, .about-band h2, .latest-details h3 {
+      color: #eef1f8;
+      text-shadow: 0 1px 0 rgba(255,255,255,.18), 0 3px 0 rgba(86,92,111,.34), 0 8px 20px rgba(0,0,0,.55);
+    }
+
+    /* Keep the original village image/video artwork visible */
+    .hero { background: #100b1c; }
+    .hero-art {
+      background-image:
+        linear-gradient(90deg, rgba(7,5,17,.76) 0%, rgba(7,5,17,.42) 48%, rgba(7,5,17,.10) 100%),
+        url('/village-purple-background.jpg.png') !important;
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .hero-art:before {
+      background: linear-gradient(90deg, rgba(7,5,17,.78) 0%, rgba(7,5,17,.45) 43%, rgba(7,5,17,.12) 100%),
+                  linear-gradient(0deg, #08070c 0%, transparent 34%) !important;
+    }
+
+    /* Premium streaming-style content shelves and video cards */
+    .feature {
+      border-color: rgba(196,181,253,.18);
+      background: linear-gradient(135deg, rgba(35,27,52,.96), rgba(15,13,22,.98));
+      transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+    }
+    .feature:hover {
+      transform: translateY(-4px);
+      border-color: rgba(196,181,253,.55);
+      box-shadow: 0 18px 42px rgba(0,0,0,.42), 0 0 24px rgba(139,92,246,.12);
+    }
+    .video-card {
+      position: relative;
+      border-color: rgba(210,216,235,.15);
+      border-radius: 16px;
+      background: linear-gradient(155deg, #211a2c, #100e16 72%);
+      box-shadow: 0 12px 30px rgba(0,0,0,.22);
+      animation: mvcc-card-enter .65s both;
+    }
+    .video-card:hover {
+      transform: translateY(-7px) scale(1.018);
+      border-color: rgba(196,181,253,.72);
+      box-shadow: 0 22px 48px rgba(0,0,0,.55), 0 0 25px rgba(124,58,237,.17);
+    }
+    .poster {
+      background-color: #211832;
+      min-height: 150px;
+    }
+    .poster:after {
+      background: linear-gradient(0deg, rgba(5,4,10,.96) 0%, rgba(5,4,10,.12) 78%);
+    }
+    .play-chip {
+      background: linear-gradient(145deg, #ff315d, #b80735);
+      box-shadow: 0 5px 20px rgba(229,9,62,.35);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .video-card:hover .play-chip {
+      transform: scale(1.12);
+      box-shadow: 0 0 22px rgba(229,9,62,.55);
+    }
+    .card-info h3 { color: #f5f3fa; }
+    .card-link, .view-all { color: #c4b5fd; }
+    .card-link:hover, .view-all:hover { color: #fff; }
+
+    .latest-feature {
+      border-color: rgba(196,181,253,.2);
+      background: linear-gradient(135deg, rgba(35,27,52,.96), rgba(12,10,17,.98));
+    }
+    .about-band {
+      border-color: rgba(196,181,253,.2);
+      background: radial-gradient(ellipse at 90% 15%, rgba(124,58,237,.25), transparent 42%),
+                  linear-gradient(120deg, #211a30, #100e16 72%);
+    }
+
+    @keyframes mvcc-card-enter {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-content { animation: mvcc-hero-enter .85s ease both; }
+    @keyframes mvcc-hero-enter {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Small screens: keep every navigation link reachable without squeezing */
+    @media (max-width: 680px) {
+      .topbar { gap: 9px; }
+      .nav {
+        justify-content: flex-start;
+        gap: 19px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        padding: 9px 2px 5px;
+      }
+      .nav::-webkit-scrollbar { display: none; }
+      .hero-art {
+        background-image:
+          linear-gradient(0deg, rgba(7,5,17,.92) 0%, rgba(7,5,17,.28) 72%, rgba(7,5,17,.12) 100%),
+          url('/village-purple-background.jpg.png') !important;
+        background-position: center center;
+      }
+      .hero-art:before {
+        background: linear-gradient(0deg, rgba(8,7,12,.98) 0%, rgba(8,7,12,.72) 38%, rgba(8,7,12,.10) 100%) !important;
+      }
+      h1 {
+        letter-spacing: -2px;
+        filter: drop-shadow(0 2px 0 rgba(255,255,255,.12)) drop-shadow(0 5px 0 rgba(83,91,112,.4)) drop-shadow(0 10px 14px rgba(0,0,0,.65));
+      }
+      .cards { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .video-card:hover { transform: translateY(-3px); }
+    }
+    @media (max-width: 380px) {
+      .nav { gap: 15px; font-size: 10px; }
+      .cards { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .video-card, .hero-content { animation: none !important; }
+      .video-card, .feature, .play-chip { transition: none !important; }
+    }
+
   </style>
 </head>
 <body>

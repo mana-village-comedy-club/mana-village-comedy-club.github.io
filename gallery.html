@@ -106,7 +106,7 @@
       color: #c7c1d5;
     }
   
-/* Soft blue glowing bubbles floating across every page. */
+/* Full red glowing bubbles floating across every page. */
 .mvcc-bubble-layer {
   position:fixed !important;
   inset:0 !important;
@@ -114,27 +114,34 @@
   overflow:hidden !important;
   pointer-events:none !important;
   mix-blend-mode:screen;
-  opacity:.78;
+  opacity:.9;
 }
-.mvcc-blue-bubble {
+.mvcc-red-bubble {
   position:absolute;
   left:var(--bubble-x);
   bottom:-42px;
   width:var(--bubble-size);
   aspect-ratio:1;
-  border:1px solid rgba(111,198,255,.68);
+  border:1px solid rgba(255,92,92,.9);
   border-radius:50%;
   background:
-    radial-gradient(circle at 28% 24%,rgba(255,255,255,.95) 0 5%,rgba(154,220,255,.62) 13%,rgba(53,151,255,.28) 34%,rgba(14,89,220,.08) 66%,transparent 74%);
+    radial-gradient(circle at 27% 23%,
+      rgba(255,255,255,.98) 0 5%,
+      rgba(255,190,190,.92) 10%,
+      rgba(255,65,65,.82) 24%,
+      rgba(226,0,0,.48) 46%,
+      rgba(150,0,0,.18) 68%,
+      transparent 76%);
   box-shadow:
-    0 0 7px rgba(44,158,255,.52),
-    0 0 16px rgba(20,115,255,.34),
-    inset -2px -3px 7px rgba(37,125,255,.19),
-    inset 2px 2px 5px rgba(255,255,255,.22);
-  opacity:.38;
+    0 0 8px rgba(255,35,35,.9),
+    0 0 18px rgba(255,0,0,.72),
+    0 0 34px rgba(220,0,0,.42),
+    inset -2px -3px 7px rgba(175,0,0,.32),
+    inset 2px 2px 5px rgba(255,245,245,.42);
+  opacity:.55;
   animation:
     mvccBubbleFloat var(--bubble-duration) linear var(--bubble-delay) infinite,
-    mvccBubbleBlink 3.8s ease-in-out var(--bubble-delay) infinite;
+    mvccBubbleBlink 3.3s ease-in-out var(--bubble-delay) infinite;
   will-change:transform,opacity;
 }
 @keyframes mvccBubbleFloat {
@@ -144,16 +151,16 @@
   100% { transform:translate3d(calc(var(--bubble-drift) * -.25),-116vh,0) scale(.72); }
 }
 @keyframes mvccBubbleBlink {
-  0%,100% { opacity:.2; filter:brightness(.9); }
-  48% { opacity:.78; filter:brightness(1.35); }
-  62% { opacity:.42; filter:brightness(1.05); }
+  0%,100% { opacity:.28; filter:brightness(.95); }
+  48% { opacity:1; filter:brightness(1.55); }
+  62% { opacity:.62; filter:brightness(1.18); }
 }
 @media (max-width:620px) {
-  .mvcc-bubble-layer { opacity:.68; }
-  .mvcc-blue-bubble { max-width:13px; }
+  .mvcc-bubble-layer { opacity:.76; }
+  .mvcc-red-bubble { max-width:13px; }
 }
 @media (prefers-reduced-motion:reduce) {
-  .mvcc-blue-bubble { animation:none !important; opacity:.2; }
+  .mvcc-red-bubble { animation:none !important; opacity:.32; }
 }
 
   </style>
@@ -161,24 +168,24 @@
 
 <body>
   <div class="mvcc-bubble-layer" aria-hidden="true">
-  <span class="mvcc-blue-bubble" style="--bubble-x:4%;--bubble-size:9px;--bubble-delay:-8s;--bubble-duration:19s;--bubble-drift:34px"></span>
-  <span class="mvcc-blue-bubble" style="--bubble-x:10%;--bubble-size:13px;--bubble-delay:-17s;--bubble-duration:24s;--bubble-drift:-42px"></span>
-  <span class="mvcc-blue-bubble" style="--bubble-x:16%;--bubble-size:7px;--bubble-delay:-4s;--bubble-duration:17s;--bubble-drift:25px"></span>
-  <span class="mvcc-blue-bubble" style="--bubble-x:23%;--bubble-size:16px;--bubble-delay:-23s;--bubble-duration:27s;--bubble-drift:-51px"></span>
-  <span class="mvcc-blue-bubble" style="--bubble-x:30%;--bubble-size:11px;--bubble-delay:-11s;--bubble-duration:21s;--bubble-drift:44px"></span>
-  <span class="mvcc-blue-bubble" style="--bubble-x:37%;--bubble-size:8px;--bubble-delay:-29s;--bubble-duration:23s;--bubble-drift:-29px"></span>
-  <span class="mvcc-blue-bubble" style="--bubble-x:44%;--bubble-size:14px;--bubble-delay:-6s;--bubble-duration:18s;--bubble-drift:53px"></span>
-  <span class="mvcc-blue-bubble" style="--bubble-x:51%;--bubble-size:10px;--bubble-delay:-19s;--bubble-duration:26s;--bubble-drift:-36px"></span>
-  <span class="mvcc-blue-bubble" style="--bubble-x:58%;--bubble-size:18px;--bubble-delay:-13s;--bubble-duration:22s;--bubble-drift:31px"></span>
-  <span class="mvcc-blue-bubble" style="--bubble-x:65%;--bubble-size:9px;--bubble-delay:-26s;--bubble-duration:20s;--bubble-drift:-47px"></span>
-  <span class="mvcc-blue-bubble" style="--bubble-x:72%;--bubble-size:12px;--bubble-delay:-9s;--bubble-duration:28s;--bubble-drift:38px"></span>
-  <span class="mvcc-blue-bubble" style="--bubble-x:79%;--bubble-size:7px;--bubble-delay:-21s;--bubble-duration:16s;--bubble-drift:-24px"></span>
-  <span class="mvcc-blue-bubble" style="--bubble-x:86%;--bubble-size:15px;--bubble-delay:-15s;--bubble-duration:25s;--bubble-drift:48px"></span>
-  <span class="mvcc-blue-bubble" style="--bubble-x:93%;--bubble-size:10px;--bubble-delay:-31s;--bubble-duration:21s;--bubble-drift:-33px"></span>
-  <span class="mvcc-blue-bubble" style="--bubble-x:13%;--bubble-size:6px;--bubble-delay:-3s;--bubble-duration:29s;--bubble-drift:28px"></span>
-  <span class="mvcc-blue-bubble" style="--bubble-x:34%;--bubble-size:13px;--bubble-delay:-25s;--bubble-duration:18s;--bubble-drift:-55px"></span>
-  <span class="mvcc-blue-bubble" style="--bubble-x:61%;--bubble-size:8px;--bubble-delay:-12s;--bubble-duration:24s;--bubble-drift:41px"></span>
-  <span class="mvcc-blue-bubble" style="--bubble-x:90%;--bubble-size:11px;--bubble-delay:-18s;--bubble-duration:27s;--bubble-drift:-27px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:4%;--bubble-size:9px;--bubble-delay:-8s;--bubble-duration:19s;--bubble-drift:34px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:10%;--bubble-size:13px;--bubble-delay:-17s;--bubble-duration:24s;--bubble-drift:-42px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:16%;--bubble-size:7px;--bubble-delay:-4s;--bubble-duration:17s;--bubble-drift:25px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:23%;--bubble-size:16px;--bubble-delay:-23s;--bubble-duration:27s;--bubble-drift:-51px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:30%;--bubble-size:11px;--bubble-delay:-11s;--bubble-duration:21s;--bubble-drift:44px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:37%;--bubble-size:8px;--bubble-delay:-29s;--bubble-duration:23s;--bubble-drift:-29px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:44%;--bubble-size:14px;--bubble-delay:-6s;--bubble-duration:18s;--bubble-drift:53px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:51%;--bubble-size:10px;--bubble-delay:-19s;--bubble-duration:26s;--bubble-drift:-36px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:58%;--bubble-size:18px;--bubble-delay:-13s;--bubble-duration:22s;--bubble-drift:31px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:65%;--bubble-size:9px;--bubble-delay:-26s;--bubble-duration:20s;--bubble-drift:-47px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:72%;--bubble-size:12px;--bubble-delay:-9s;--bubble-duration:28s;--bubble-drift:38px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:79%;--bubble-size:7px;--bubble-delay:-21s;--bubble-duration:16s;--bubble-drift:-24px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:86%;--bubble-size:15px;--bubble-delay:-15s;--bubble-duration:25s;--bubble-drift:48px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:93%;--bubble-size:10px;--bubble-delay:-31s;--bubble-duration:21s;--bubble-drift:-33px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:13%;--bubble-size:6px;--bubble-delay:-3s;--bubble-duration:29s;--bubble-drift:28px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:34%;--bubble-size:13px;--bubble-delay:-25s;--bubble-duration:18s;--bubble-drift:-55px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:61%;--bubble-size:8px;--bubble-delay:-12s;--bubble-duration:24s;--bubble-drift:41px"></span>
+  <span class="mvcc-red-bubble" style="--bubble-x:90%;--bubble-size:11px;--bubble-delay:-18s;--bubble-duration:27s;--bubble-drift:-27px"></span>
 </div>
   <header>
     <h1>📸 Images & Videos</h1>

@@ -819,18 +819,51 @@
       aspect-ratio:1 / 1 !important;
       align-items:center !important;
       justify-content:center !important;
-      border:1px solid rgba(255,255,255,.75) !important;
+      border:2px solid #f5d06f !important;
       border-radius:50% !important;
-      background:rgba(24,24,24,.75) !important;
-      box-shadow:0 0 0 5px rgba(255,255,255,.05), 0 0 24px rgba(255,255,255,.2) !important;
+      background:rgba(12,10,8,.9) !important;
+      overflow:visible !important;
+      box-shadow:
+        0 0 0 4px rgba(245,208,111,.16),
+        0 0 16px 4px rgba(245,184,56,.72),
+        0 0 36px 10px rgba(255,192,58,.42),
+        inset 0 0 14px rgba(255,220,130,.2) !important;
+      animation:mvccGoldPulse 1.65s ease-in-out infinite !important;
+    }
+    .hero-logo-wrap::before {
+      content:"" !important;
+      position:absolute !important;
+      inset:-9px !important;
+      border:2px solid rgba(255,211,112,.76) !important;
+      border-radius:50% !important;
+      box-shadow:0 0 20px rgba(255,192,64,.7), inset 0 0 14px rgba(255,192,64,.2) !important;
+      pointer-events:none !important;
+      animation:mvccGoldRing 1.65s ease-in-out infinite !important;
     }
     .hero-channel-logo {
+      position:relative !important;
+      z-index:1 !important;
       display:block !important;
       width:100% !important;
       height:100% !important;
       object-fit:contain !important;
       border-radius:50% !important;
       filter:none !important;
+    }
+    @keyframes mvccGoldPulse {
+      0%,100% {
+        box-shadow:0 0 0 3px rgba(245,208,111,.12),0 0 12px 3px rgba(245,184,56,.52),0 0 28px 7px rgba(255,192,58,.28),inset 0 0 10px rgba(255,220,130,.14);
+      }
+      50% {
+        box-shadow:0 0 0 7px rgba(245,208,111,.25),0 0 24px 8px rgba(255,199,76,.95),0 0 52px 16px rgba(255,190,48,.58),inset 0 0 18px rgba(255,230,160,.34);
+      }
+    }
+    @keyframes mvccGoldRing {
+      0%,100% { opacity:.55; transform:scale(.98); }
+      50% { opacity:1; transform:scale(1.07); }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      .hero-logo-wrap,.hero-logo-wrap::before { animation:none !important; }
     }
     .hero-content { z-index:4 !important; max-width:620px !important; }
     .hero-content .eyebrow { font-size:11px !important; margin-bottom:9px !important; letter-spacing:1.5px !important; }

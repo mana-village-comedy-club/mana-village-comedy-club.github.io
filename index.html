@@ -801,7 +801,32 @@
       display:block !important; z-index:2 !important;
       background:linear-gradient(90deg,#101010 0%,rgba(16,16,16,.96) 34%,rgba(16,16,16,.24) 74%,rgba(16,16,16,.08) 100%) !important;
     }
-    .spotlight,.moon,.ridge,.fields,.hut,.tree,.poster-stack,.art-caption,.hero-logo-wrap { display:none !important; }
+    .spotlight,.moon,.ridge,.fields,.hut,.tree,.poster-stack,.art-caption { display:none !important; }
+    /* Keep the original channel logo visible beside the vertical hero video. */
+    .hero-logo-wrap {
+      display:flex !important;
+      position:absolute !important;
+      z-index:6 !important;
+      right:clamp(150px, 16vw, 190px) !important;
+      top:50% !important;
+      transform:translateY(-50%) !important;
+      width:clamp(76px, 9vw, 112px) !important;
+      aspect-ratio:1 / 1 !important;
+      align-items:center !important;
+      justify-content:center !important;
+      border:1px solid rgba(255,255,255,.75) !important;
+      border-radius:50% !important;
+      background:rgba(24,24,24,.75) !important;
+      box-shadow:0 0 0 5px rgba(255,255,255,.05), 0 0 24px rgba(255,255,255,.2) !important;
+    }
+    .hero-channel-logo {
+      display:block !important;
+      width:100% !important;
+      height:100% !important;
+      object-fit:contain !important;
+      border-radius:50% !important;
+      filter:none !important;
+    }
     .hero-content { z-index:4 !important; max-width:620px !important; }
     .hero-content .eyebrow { font-size:11px !important; margin-bottom:9px !important; letter-spacing:1.5px !important; }
     .hero-content h1 {
@@ -898,6 +923,13 @@
       footer { margin-left:0; padding:22px 12px; }
       .hero { min-height:225px !important; height:225px !important; padding:20px 17px !important; }
       .hero-background-video { opacity:.7; }
+      .hero-logo-wrap {
+        display:flex !important;
+        right:14px !important;
+        top:14px !important;
+        transform:none !important;
+        width:64px !important;
+      }
       .hero-art:before { background:linear-gradient(90deg,#101010 0%,rgba(16,16,16,.87) 52%,rgba(16,16,16,.25) 100%) !important; }
       .hero-content h1 { font-size:25px !important; }
       .hero-content h1 .telugu-headline { font-size:14px !important; }

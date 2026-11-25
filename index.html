@@ -1052,6 +1052,29 @@
   .mvcc-red-bubble { animation:none !important; opacity:.32; }
 }
 
+
+    /* MVCC golden video hover frame */
+    .video-card .poster {
+      outline: 1px solid transparent;
+      outline-offset: -1px;
+      transition:
+        outline-color .22s ease,
+        box-shadow .22s ease,
+        transform .22s ease;
+    }
+    .video-card:hover .poster,
+    .video-card:focus-visible .poster {
+      outline: 2px solid #f5d06f;
+      outline-offset: -2px;
+      box-shadow:
+        0 0 0 1px rgba(245,208,111,.55),
+        0 0 14px rgba(245,208,111,.48),
+        0 0 28px rgba(245,208,111,.18);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .video-card .poster { transition: none; }
+    }
+
   </style>
 </head>
 <body>

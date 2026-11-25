@@ -794,12 +794,17 @@
       inset:0 !important; background:#101010 !important; overflow:hidden !important;
     }
     .hero-background-video {
-      width:100% !important; height:100% !important; object-fit:contain !important;
-      object-position:right center !important; filter:none !important; background:#101010 !important;
+      width:100% !important;
+      height:100% !important;
+      object-fit:cover !important;
+      object-position:center center !important;
+      filter:none !important;
+      background:#101010 !important;
     }
     .hero-art:before {
-      display:block !important; z-index:2 !important;
-      background:linear-gradient(90deg,#101010 0%,rgba(16,16,16,.96) 34%,rgba(16,16,16,.24) 74%,rgba(16,16,16,.08) 100%) !important;
+      display:block !important;
+      z-index:2 !important;
+      background:linear-gradient(90deg,rgba(0,0,0,.44) 0%,rgba(0,0,0,.24) 54%,rgba(0,0,0,.10) 100%) !important;
     }
     .spotlight,.moon,.ridge,.fields,.hut,.tree,.poster-stack,.art-caption { display:none !important; }
     /* Keep the original channel logo visible beside the vertical hero video. */
@@ -922,7 +927,11 @@
       .yt-main { margin-left:0; }
       footer { margin-left:0; padding:22px 12px; }
       .hero { min-height:225px !important; height:225px !important; padding:20px 17px !important; }
-      .hero-background-video { opacity:.7; }
+      .hero-background-video {
+        opacity:1 !important;
+        object-fit:cover !important;
+        object-position:center center !important;
+      }
       .hero-logo-wrap {
         display:flex !important;
         right:14px !important;
@@ -930,7 +939,7 @@
         transform:none !important;
         width:64px !important;
       }
-      .hero-art:before { background:linear-gradient(90deg,#101010 0%,rgba(16,16,16,.87) 52%,rgba(16,16,16,.25) 100%) !important; }
+      .hero-art:before { background:rgba(0,0,0,.28) !important; }
       .hero-content h1 { font-size:25px !important; }
       .hero-content h1 .telugu-headline { font-size:14px !important; }
       .hero-copy { max-width:75%; font-size:10px !important; }
